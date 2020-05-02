@@ -5,7 +5,7 @@ let Token;
 export async function Login() {
    
     return new Promise((resolve, reject) => {
-        let authenticator = new netlfiy()
+        let authenticator = new netlfiy({})
         authenticator.authenticate({
             provider: 'github',
             scope: 'user,delete_repo'
