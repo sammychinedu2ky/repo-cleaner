@@ -44,7 +44,8 @@ const Body = () => {
             alert('please login and click on get repo')
             return
         }
-        
+        let warn =prompt("Please do note that this process can't be undone, type 'yes' to delete");
+        if(warn.trim().toLowerCase()!='yes') return
         let newArr = delItems.map(item => DelRepo(repos[item].full_name));
         Promise.all([...newArr])
             .then(result => {
