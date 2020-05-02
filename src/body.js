@@ -68,7 +68,7 @@ const Body = () => {
             <div className="container">
                 <nav className="navbar navbar-light navbar-expand-lg fixed bg-white clean-navbar">
                     <div className="container">
-                        <a className="navbar-brand logo" href="#">Repo Deleter</a>
+                        <a className="navbar-brand logo" href="#">Repo Cleaner</a>
                         <button data-toggle="collapse" className="navbar-toggler" data-target="#navcol-1">
                             <span className="sr-only">Toggle navigation</span>
                             <span className="navbar-toggler-icon"></span>
