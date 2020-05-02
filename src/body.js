@@ -23,6 +23,7 @@ const Body = () => {
         let repo = await GetRepo()
         console.log(repo)
         setRepos(repo)
+
     }
     function addToList(index) {
 
@@ -39,7 +40,7 @@ const Body = () => {
         console.log(delItems.length, delItems)
     }
 
-    function deleteRepo() {
+    async function deleteRepo(e) {
         if (!login || repos.lenth==0) {
             alert('please login and click on get repo')
             return
@@ -50,10 +51,20 @@ const Body = () => {
         Promise.all([...newArr])
             .then(result => {
                 setDelItems([]);
-               setRepo(e)
+                let updatedRepo = repos.filter((item, index) => {
+                    return delItems.some(i => i == item)
+                })
+                let checkBox = document.getElementsByName('check')
+                checkBox.forEach(item => {
+                    item.checked = false
+                })
+                setRepos(updatedRepo)
                 alert('selected repos deleted ')
+                setRepo(e)
+                document.getElementById("headText").innerHTML = "Updated Repos";
+                
             })
-
+       
     }
 
     return (
@@ -68,13 +79,13 @@ const Body = () => {
                         </button>
                         <div className="collapse navbar-collapse" id="navcol-1">
                             <ul className="nav navbar-nav ml-auto">
-                                <li className="nav-item ml-5" role="presentation">
+                                <li className="nav-item ml-lg-5" role="presentation">
                                     <a className="nav-link"  onClick={oath} href=''>Login</a>
                                 </li>
-                                <li className="nav-item ml-5" role="presentation">
+                                <li className="nav-item ml-lg-5" role="presentation">
                                     <a className="nav-link"  href='' id="GetRepo" onClick={setRepo}>Get Repo</a>
                                 </li>
-                                <li className="nav-item ml-5" role="presentation">
+                                <li className="nav-item ml-lg-5" role="presentation">
                                     <a className="nav-link"  href='https://github.com/sammychinedu2ky/repo-cleaner' >Fork @GitHub</a>
                                 </li>
                  
@@ -84,7 +95,7 @@ const Body = () => {
                 </nav>
                 <main className="page landing-page">
                     <div style={{marginTop:'3em'}}/>
-                    <h3>Please Login to display your Repositories</h3>
+                    <h3 id="headText">Please Login to display your Repositories</h3>
                     <div className="table-responsive">
 
                         <table className="table">
