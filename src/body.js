@@ -75,10 +75,10 @@ const Body = () => {
                         <div className="collapse navbar-collapse" id="navcol-1">
                             <ul className="nav navbar-nav ml-auto">
                                 <li className="nav-item ml-5" role="presentation">
-                                    <a className="nav-link" href="about-us.html" onClick={oath}>Login</a>
+                                    <a className="nav-link"  onClick={oath}>Login</a>
                                 </li>
                                 <li className="nav-item ml-5" role="presentation">
-                                    <a className="nav-link" href="about-us.html" id="GetRepo" onClick={setRepo}>Get Repo</a>
+                                    <a className="nav-link"  id="GetRepo" onClick={setRepo}>Get Repo</a>
                                 </li>
                  
                             </ul>
