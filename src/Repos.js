@@ -5,9 +5,7 @@ let Token;
 export async function Login() {
    
     return new Promise((resolve, reject) => {
-        let authenticator = new netlfiy({
-            site_id: 'a0c5f142-3712-47a1-8ff7-f15eeac2dd01'
-        })
+        let authenticator = new netlfiy()
         authenticator.authenticate({
             provider: 'github',
             scope: 'user,delete_repo'
