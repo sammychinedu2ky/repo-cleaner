@@ -51,14 +51,7 @@ const Body = () => {
         Promise.all([...newArr])
             .then(result => {
                 setDelItems([]);
-                let updatedRepo = repos.filter((item, index) => {
-                    return delItems.some(i => i == item)
-                })
-                let checkBox = document.getElementsByName('check')
-                checkBox.forEach(item => {
-                    item.checked = false
-                })
-                setRepos(updatedRepo)
+               
                 alert('selected repos deleted ')
                 setRepo(e)
                 document.getElementById("headText").innerHTML = "Updated Repos";
