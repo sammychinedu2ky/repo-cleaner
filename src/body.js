@@ -51,7 +51,7 @@ const Body = () => {
             .then(result => {
                 setDelItems([]);
                 let updatedRepo = repos.filter((item, index) => {
-                    return delItems.some(i => i == item)
+                    return delItems.some(i => i != index)
                 })
                 let checkBox = document.getElementsByName('check')
                 checkBox.forEach(item => {
