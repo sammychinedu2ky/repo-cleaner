@@ -1,0 +1,7 @@
+{
+  "name": "repo-cleaner",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
