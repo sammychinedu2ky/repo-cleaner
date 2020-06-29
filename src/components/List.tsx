@@ -116,9 +116,12 @@ let List: React.FC = () => {
           {
             text: "Okay",
             handler: () => {
-              dispatch({
-                  type:"DELREPO"
-              })
+                if(state.selected.length ){
+                    dispatch({
+                        type:"DELREPO"
+                    })
+                }
+            
             },
           },
         ]}
