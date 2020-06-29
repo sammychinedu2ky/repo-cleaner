@@ -75,9 +75,4 @@ export interface Action {
     type: string
     [propName: string]: any;
 }
-let action: Action = {
-    type: 'eat',
-    payload: 3,
-    man: 4
-}
 
