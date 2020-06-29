@@ -10,16 +10,8 @@ import {
   IonAlert,
 } from "@ionic/react";
 import {
-  images,
-  ellipse,
-  square,
-  triangle,
-  trashBin,
-  logIn,
   logInOutline,
-  gitMergeOutline,
   logoGithub,
-  add,
   gitBranchOutline,
   logOutOutline,
 } from "ionicons/icons";
@@ -27,8 +19,6 @@ import "./index.css";
 import Menu from "./Menu";
 import { useSelector, useDispatch } from "react-redux";
 import { State } from "../types";
-import { checkLogin } from "../redux/reducers/index";
-import store from "../redux/store";
 import { Login } from "../util";
 
 let Header: React.FC = () => {
@@ -76,7 +66,10 @@ let Header: React.FC = () => {
           </IonText>
 
           <IonText slot="primary" className="ion-margin">
-            <a href="https://github.com/sammychinedu2ky/repo-cleaner" target="_blank">
+            <a
+              href="https://github.com/sammychinedu2ky/repo-cleaner"
+              target="_blank"
+            >
               <IonIcon icon={logoGithub} />
             </a>
           </IonText>

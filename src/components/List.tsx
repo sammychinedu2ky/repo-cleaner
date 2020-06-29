@@ -27,7 +27,6 @@ import {
 import { trashBin } from "ionicons/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { State, Repos } from "../types";
-import store from "../redux/store";
 import trash from "./trash.svg";
 import { Login } from "../util";
 let List: React.FC = () => {
@@ -183,6 +182,7 @@ let List: React.FC = () => {
                   <IonRow className=" ion-align-items-center">
                     <IonCol sizeXs="12" sizeMd="6">
                       <IonImg src={trash} />
+                      <IonText><h2>Delete Multiple Github Repositories</h2></IonText>
                     </IonCol>
                     <IonCol pushMd="3" pushXs="4">
                       <IonButton onClick={login}>Login</IonButton>

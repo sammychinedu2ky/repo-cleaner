@@ -10,8 +10,7 @@ import {
   IonList,
   IonItem,
   IonIcon,
-  IonLabel,
-  IonSpinner,
+  
   IonAlert,
 } from "@ionic/react";
 import {
@@ -20,9 +19,7 @@ import {
   logoGithub,
   logOutOutline,
 } from "ionicons/icons";
-import { useStore, useSelector, useDispatch } from "react-redux";
-import dummy from "./dummy.png";
-import loader from "./loader.gif";
+import { useSelector, useDispatch } from "react-redux";
 import { State } from "../types";
 import { Login } from "../util";
 
@@ -62,7 +59,7 @@ let Menu: React.FC = () => {
         <span id="first"></span>
         <IonContent>
           <IonAvatar className="ion-margin ">
-            <img src={state.avatar} />
+            <img src={state.avatar} alt='avatar' />
           </IonAvatar>
           <IonText class="ion-margin">{state.user}</IonText>
           <IonList>
