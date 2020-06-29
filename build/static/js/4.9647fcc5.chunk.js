@@ -1,0 +1,2 @@
+(this["webpackJsonprepo-cleaner"]=this["webpackJsonprepo-cleaner"]||[]).push([[4],{182:function(n,t,e){"use strict";e.r(t),e.d(t,"startStatusTap",(function(){return r}));var o=e(24),r=function(){var n=window;n.addEventListener("statusTap",(function(){Object(o.f)((function(){var t=n.innerWidth,e=n.innerHeight,r=document.elementFromPoint(t/2,e/2);if(r){var c=r.closest("ion-content");c&&c.componentOnReady().then((function(){Object(o.n)((function(){return c.scrollToTop(300)}))}))}}))}))}}}]);
+//# sourceMappingURL=4.9647fcc5.chunk.js.map
