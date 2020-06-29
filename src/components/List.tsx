@@ -34,7 +34,6 @@ let List: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
   let state = useSelector((state: State) => state);
   let dispatch = useDispatch();
-  console.log(`user is ${state.user}`);
   let repos: Array<Repos> = state.repos;
   const login = () => {
     if (state.login) {
@@ -46,10 +45,8 @@ let List: React.FC = () => {
 
   let showList: boolean;
   if (repos.length && !state.repoLoading) {
-    console.log("hi");
     showList = true;
   } else {
-    console.log(repos.length);
     showList = false;
   }
 
@@ -66,7 +63,6 @@ let List: React.FC = () => {
       if(state.login){
         dispatch({ type: "GETREPO" });
         setTimeout(() => {
-          console.log("Async operation has ended");
           e.detail.complete();
         }, 2000);
       }
@@ -105,9 +101,8 @@ let List: React.FC = () => {
       <IonAlert
         isOpen={showAlert}
         onDidDismiss={() => setShowAlert(false)}
-        cssClass="my-custom-class"
         header={"Alert"}
-        subHeader={"Subtitle"}
+        subHeader={"Delete Repos"}
         message={alertInfo.message}
         inputs={alertInfo.input as AlertInput[]}
         buttons={[

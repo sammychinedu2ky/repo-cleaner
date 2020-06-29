@@ -55,14 +55,45 @@ function* getRepos(action: Action) {
       };
     }
 
-    let get = yield call(fetch, "https://api.github.com/user/repos", {
-      headers: {
-        Authorization: `token ${Token}`,
-      },
-      cache: "no-cache",
-    });
+    let get = yield call(
+      fetch,
+      "https://api.github.com/user/repos?per_page=100",
+      {
+        headers: {
+          Authorization: `token ${Token}`,
+        },
+        cache: "no-cache",
+      }
+    );
     let repos = yield get.json();
-    console.log(repos);
+    if (repos.length >= 100) {
+      let get = yield call(
+        fetch,
+        "https://api.github.com/user/repos?page=2&per_page=100",
+        {
+          headers: {
+            Authorization: `token ${Token}`,
+          },
+          cache: "no-cache",
+        }
+      );
+      get = yield get.json();
+      repos = [...repos, ...get];
+    }
+    if (repos.length >= 200) {
+      let get = yield call(
+        fetch,
+        "https://api.github.com/user/repos?page=3&per_page=100",
+        {
+          headers: {
+            Authorization: `token ${Token}`,
+          },
+          cache: "no-cache",
+        }
+      );
+      get = yield get.json();
+      repos = [...repos, ...get];
+    }
     repos = repos.map((item: any) => {
       let { full_name, html_url, name } = item;
       return { full_name, html_url, name };
@@ -106,10 +137,8 @@ function* deleteRepos() {
     });
 
     let selected = yield select((val) => val.selected);
-    console.log("selectec ccccccccccccccccis ", selected);
     let get = yield all(
       selected.map((item: any) => {
-        console.log("raterererer");
         return call(fetch, `https://api.github.com/repos/${item}`, {
           headers: {
             Authorization: `token ${Token}`,
@@ -118,7 +147,6 @@ function* deleteRepos() {
         });
       })
     );
-    console.log(get, "bbbbbbbbbbbbbbbbbbbbbbbbbb");
     yield put({
       type: "GETREPO",
     });
@@ -129,7 +157,6 @@ function* deleteRepos() {
       },
     });
   } catch (error) {
-    console.log(error);
     yield put({
       type: "ERROR",
       payload: {
@@ -139,7 +166,6 @@ function* deleteRepos() {
   }
 }
 function* getUser(action: Action) {
-  console.log("best is baest");
   try {
     let Token = action.payload.token;
     let get = yield call(fetch, "https://api.github.com/user", {
@@ -149,7 +175,6 @@ function* getUser(action: Action) {
       cache: "no-cache",
     });
     let user = yield get.json();
-    console.log(`user iss ${user}`);
     localStorage.setItem("user", user.login);
     localStorage.setItem("login", "true");
     yield put({
@@ -184,7 +209,6 @@ function* logOut() {
   window.location.href = "https://github.com/logout";
 }
 export default function* watchSagas() {
-  console.log("bat");
   yield takeEvery("GETREPO", getRepos);
   yield takeEvery("GETUSER", getUser);
   yield takeEvery("DELREPO", deleteRepos);
@@ -192,6 +216,5 @@ export default function* watchSagas() {
 }
 
 function* rootSaga() {
-  console.log("ben");
   yield all([watchSagas]);
 }

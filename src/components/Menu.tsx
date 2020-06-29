@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   IonMenu,
   IonHeader,
@@ -12,6 +12,7 @@ import {
   IonIcon,
   IonLabel,
   IonSpinner,
+  IonAlert,
 } from "@ionic/react";
 import {
   logInOutline,
@@ -28,6 +29,8 @@ import { Login } from "../util";
 let Menu: React.FC = () => {
   let dispatch = useDispatch();
   let state = useSelector((state: State) => state);
+  const [showAlert, setShowAlert] = useState(false);
+
   let details = {
     text: "Login",
     icon: logInOutline,
@@ -42,7 +45,7 @@ let Menu: React.FC = () => {
 
   const login = () => {
     if (state.login) {
-      dispatch({ type: "LOGOUT" });
+      setShowAlert(true);
     } else {
       Login();
     }
@@ -51,7 +54,7 @@ let Menu: React.FC = () => {
   return (
     <>
       <IonMenu side="start" contentId="first" menuId="first">
-        <IonHeader>
+        <IonHeader color="primary">
           <IonToolbar color="primary">
             <IonTitle>Repo Cleaner</IonTitle>
           </IonToolbar>
@@ -71,13 +74,34 @@ let Menu: React.FC = () => {
             </IonItem>
 
             <IonItem>
-              <a href="https://www.google.com" target="_blank">
+              <a href="https://github.com/sammychinedu2ky/repo-cleaner" target="_blank">
                 <IonIcon icon={logoGithub} className="ion-margin-end" />
                 Fork@GitHub
               </a>
             </IonItem>
           </IonList>
-          
+          <IonAlert
+            isOpen={showAlert}
+            onDidDismiss={() => setShowAlert(false)}
+            header={"Alert"}
+            subHeader={"Signout"}
+            message={
+              "You would be redirected to github to finish the signout process"
+            }
+            buttons={[
+              {
+                text: "Cancel",
+                role: "cancel",
+                cssClass: "secondary",
+              },
+              {
+                text: "Okay",
+                handler: () => {
+                  dispatch({ type: "LOGOUT" });
+                },
+              },
+            ]}
+          />
         </IonContent>
       </IonMenu>
     </>

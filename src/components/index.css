@@ -8,18 +8,11 @@ a{
   }
 }
 #repoIcon{
-  color:rgb(68, 68, 230);
+  color:#4444e6;
   font-size: 2rem;
 }
 #repoTitle{
   font-size: 2rem;
   font-weight: bold;
   font-family: 'Courier New', Courier, monospace;
-  color: rgb(100, 100, 235);
-}
-#trashButton{
-  
-}
-#fab{
- 
-}
+ }
