@@ -1,0 +1,25 @@
+a{
+  text-decoration: none;
+  font-size:1.2rem;
+}
+@media(max-width:300px){
+  a{
+      font-size:1rem;
+  }
+}
+#repoIcon{
+  color:rgb(68, 68, 230);
+  font-size: 2rem;
+}
+#repoTitle{
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(100, 100, 235);
+}
+#trashButton{
+  
+}
+#fab{
+ 
+}
