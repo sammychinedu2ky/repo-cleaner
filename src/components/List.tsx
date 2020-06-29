@@ -63,11 +63,14 @@ let List: React.FC = () => {
   };
 
   let refresh = (e: any) => {
-    dispatch({ type: "GETREPO" });
-    setTimeout(() => {
-      console.log("Async operation has ended");
-      e.detail.complete();
-    }, 2000);
+      if(state.login){
+        dispatch({ type: "GETREPO" });
+        setTimeout(() => {
+          console.log("Async operation has ended");
+          e.detail.complete();
+        }, 2000);
+      }
+    
   };
 
   let alertInfo = {
