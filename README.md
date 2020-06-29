@@ -1,4 +1,6 @@
 # Repo Cleaner
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1c615e80-7fa1-4098-9db2-220a28d556cf/deploy-status)](https://app.netlify.com/sites/repo-cleaner/deploys)
+
 This project was is a React App created to make deletion of multiple repository easy. 
 
 Technologies Uses:
