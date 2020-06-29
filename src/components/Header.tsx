@@ -52,7 +52,7 @@ let Header:React.FC= ()=>{
           <IonText slot="primary"
             className="ion-margin ion-hide-md-down" onClick={login}
           >
-            <a href="https://www.google.com" target="_blank">{details.text}</a>
+            <a  target="_blank">{details.text}</a>
           </IonText>
            
           <IonText slot="primary"
