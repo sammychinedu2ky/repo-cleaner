@@ -5,7 +5,7 @@ let Token:string;
 export async function Login() {
    
     return new Promise((resolve, reject) => {
-        let authenticator = new netlify({})
+        let authenticator = new netlify({site_id:"1c615e80-7fa1-4098-9db2-220a28d556cf"})
         authenticator.authenticate({
             provider: 'github',
             scope: 'user,delete_repo'

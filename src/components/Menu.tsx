@@ -18,6 +18,7 @@ import {
   gitMergeOutline,
   logoGithub,
   logOutOutline,
+  hammerOutline,
 } from "ionicons/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { State } from "../types";
@@ -74,7 +75,13 @@ let Menu: React.FC = () => {
               <a href="https://github.com/sammychinedu2ky/repo-cleaner" target="_blank">
                 <IonIcon icon={logoGithub} className="ion-margin-end" />
                 Fork@GitHub
-              </a>
+                </a>
+            </IonItem>
+            <IonItem>
+              <a href="https://manifest-gen.netlify.app" target="_blank">
+                <IonIcon icon={hammerOutline} className="ion-margin-end" />
+                PWA Tool
+                </a>
             </IonItem>
           </IonList>
           <IonAlert

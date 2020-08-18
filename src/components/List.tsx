@@ -65,6 +65,9 @@ let List: React.FC = () => {
           e.detail.complete();
         }, 2000);
       }
+      else{
+        e.detail.complete();
+      }
     
   };
 

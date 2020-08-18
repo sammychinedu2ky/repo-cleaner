@@ -3,7 +3,7 @@
 
 This project is a React App created to make the deletion of multiple repositories easy. 
 
-Technologies Used:
+Technologies Used
 - Ionic React
 - Redux
 - Redux-Saga
