@@ -8,6 +8,8 @@ Technologies Used
 - Redux
 - Redux-Saga
 - GitHub API
+- Netlify OAuth
+- Typescript
 
 
 The link to the site can be found [here](https://repo-cleaner.netlify.app/)
