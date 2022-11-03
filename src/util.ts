@@ -14,7 +14,6 @@ export async function Login() {
                 if (err) {
                     reject(err)
                 }
-                
                 console.log(data.token)
                 Token = data.token;
                 localStorage.setItem("token",Token)
